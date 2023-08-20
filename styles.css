@@ -1,0 +1,337 @@
+*{
+    --prim:#616EEF;
+    --sec:#09A8FA;
+    --ter:#41C5D3;
+    --con: #D0F1CF;
+    --white:#F3E8FF;
+    --black:#161835;
+    margin: 0;
+    z-index: 100;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+.block{
+    position: relative;
+    height: 100vh;
+}
+
+body{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    background-color: var(--white);
+    background-size: 100vh 100vh;
+}
+nav{
+    position:fixed;
+    width: calc(100% - 30px);
+    height: 1.5rem;
+    top: 0;
+    left: 0;
+    padding: 15px;
+    z-index: 500;
+}
+.nav-container{
+    display: flex;
+    justify-content: space-around;
+    background-color: transparent;
+}
+.link-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.nav-container a{
+    color: var(--white);
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    opacity: 0.9;
+}
+.nav-container a:hover{
+    color: white;
+    text-decoration: underline;
+    border-radius: 10px;
+    opacity: 1;
+    transform: scale(1.1);
+}
+.nav-fill{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 3.5rem;
+    background-color: var(--black);
+    z-index: 400;
+}
+
+header{
+    display: grid;
+    place-content: center;
+    background:linear-gradient(-135deg,var(--prim)30%, var(--sec)60%, var(--ter)90%);
+    overflow: hidden;
+}
+header::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background:radial-gradient(rgba(255,255,255,0.6),transparent);
+    z-index: 90;
+    animation: blob 2s ease-in-out infinite alternate;
+}
+@keyframes blob {
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.3);
+    }
+}
+
+header::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background:radial-gradient(rgba(255,255,255,0.3) 2px,transparent 3px);
+    background-size: 50px 50px;
+    z-index: 90;
+}
+.peque,.emprendedores{
+    font-size: 5rem;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+}
+.peque{
+    position: relative;
+    width: fit-content;
+    padding: 0 1rem;
+    font-family: 'Courgette', cursive;
+    color: var(--prim);
+    opacity: 0.7;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+
+.emprendedores{
+    font-family: 'Fjalla One', sans-serif;
+    color: var(--black);
+    font-size: 7rem;
+}
+h1{
+    transform: translate(0,-2rem);
+}
+header input{
+    font-size: 2em;
+    border-radius: 100px;
+    padding: 5px 15px;
+    padding-top: 10px;
+    outline: none;
+    border: none;
+    width: 60%;
+    color: var(--prim);
+    background-color: var(--white);
+    transition: all 0.3s ease-in-out;
+    animation: 4s infinite linear click-me;
+}
+@keyframes click-me {
+    0%{
+        transform:rotate(0deg)
+    }
+    25%{
+        transform: rotate(0deg);
+    }
+    27%{
+        transform: rotate(0.4deg);
+    }  
+    31%{
+        transform: rotate(-0.4deg);
+    }
+    33%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+header input::placeholder{
+    color:var(--prim);
+    opacity: 0.5;
+}
+header input:focus{
+    animation: 0.3s ease-in-out;
+    animation-name: focus-input;
+    box-shadow: 0 0 0 2px var(--prim);
+}
+header input:focus + .buscar-icon{
+    opacity: 0.5;
+}
+@keyframes focus-input{
+    0%{
+        box-shadow: 0 0 0 0px var(--prim);
+    }
+    50%{
+        box-shadow: 0 0 0 1px var(--prim);
+
+    }
+    100%{
+        box-shadow: 0 0 0 2px var(--prim);
+    }
+}
+.input-container{
+    position:relative;
+    display: flex;
+    justify-content: center;
+}
+.buscar-icon{
+    position: absolute;
+    right: calc(20% + 8px);
+    top: 7px;
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    border-radius: 50%;
+    border: 4px solid var(--prim);
+    background-color: transparent;
+    transition: all 0.3s ease-in-out;
+}
+.buscar-icon::after{
+    content: "";
+    position: absolute;
+    right: -9px;
+    top: 9px;
+    height: 20px;
+    width: 5px;
+    transform: rotate(-45deg);
+    background-color: var(--prim);
+    pointer-events: none;
+}
+header .maceta{
+    position: absolute;
+    height: 320px;
+    bottom: 0;
+    transform: rotate(45deg);
+    pointer-events: none;
+}
+header .desayuno{
+    position: absolute;
+    height: 640px;
+    bottom: 0;
+    right: 0;
+    pointer-events: none;
+
+}
+header .dedos{
+    position: absolute;
+    height: 160px;
+    top: -40px;
+    left: 250px;
+    transform: rotate(5deg);
+    pointer-events: none;
+}
+.logo{
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    height: 120px;
+}
+.grow{
+    position: absolute;
+    right: 30px;
+    bottom: 10px;
+    height: 120px;
+}
+.flecha{
+    position: absolute;
+    right: 10px;
+    bottom: 50px;
+    height: 40px;
+}
+.img-link:hover, .img-link:hover + .flecha{
+    transform: scale(1.05);
+}
+@media (max-width:720px) {
+    *{
+        font-size: 10px;
+    }
+    .logo,.grow{
+        height: 100px;
+    }
+    .flecha{
+        bottom: 40px;
+        height: 35px;
+    }
+    .buscar-icon{
+        height: 10px;
+        width: 10px;
+        right: calc(19% + 1rem);
+        top: 5px;
+        border: 4px solid var(--prim);
+    }
+    .buscar-icon::after{
+        right: -8px;
+        top: 8px;
+        height: 13px;
+        width: 4px;
+    }
+}
+
+@media (max-width:450px) {
+    *{
+        font-size: 8px;
+    }
+    .logo,.grow{
+        height: 80px;
+    }
+    .flecha{
+        bottom: 30px;
+        height: 30px;
+    }
+    .buscar-icon{
+        height: 8px;
+        width: 8px;
+        right: calc(18% + 1rem);
+        top: 6px;
+        border: 3px solid var(--prim);
+    }
+    .buscar-icon::after{
+        right: -6px;
+        top: 6px;
+        height: 11px;
+        width: 3px;
+    }
+}
+@media (max-width:340px) {
+    *{
+        font-size: 6px;
+    }
+    .logo,.grow{
+        height: 60px;
+    }
+    .flecha{
+        bottom: 25px;
+        height: 25px;
+    }
+    .buscar-icon{
+        height: 8px;
+        width: 8px;
+        right: calc(18% + 1rem);
+        top: 4px;
+        border: 3px solid var(--prim);
+    }
+    .buscar-icon::after{
+        right: -6px;
+        top: 6px;
+        height: 11px;
+        width: 3px;
+    }
+    
+}
