@@ -150,10 +150,10 @@ header input{
         transform: rotate(0deg);
     }
     27%{
-        transform: rotate(0.6deg);
+        transform: rotate(1.2deg);
     }  
     31%{
-        transform: rotate(-0.6deg);
+        transform: rotate(-1.2deg);
     }
     33%{
         transform: rotate(0deg);
@@ -307,6 +307,26 @@ header .dedos{
         top: 6px;
         height: 11px;
         width: 3px;
+    }
+    @keyframes click-me {
+        0%{
+            transform:rotate(0deg)
+        }
+        25%{
+            transform: rotate(0deg);
+        }
+        27%{
+            transform: rotate(1.6deg);
+        }  
+        31%{
+            transform: rotate(-1.6deg);
+        }
+        33%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(0deg);
+        }
     }
 }
 @media (max-width:340px) {
