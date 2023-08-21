@@ -3,7 +3,7 @@
     --sec:#09A8FA;
     --ter:#41C5D3;
     --con: #D0F1CF;
-    --white:#F3E8FF;
+    --white:#f7f0ff;
     --black:#161835;
     margin: 0;
     z-index: 100;
@@ -109,16 +109,14 @@ header::before{
     width: 100%;
     text-align: center;
     display: inline-block;
+    position: relative;
 }
 .peque{
     position: relative;
-    width: fit-content;
-    padding: 0 1rem;
     font-family: 'Courgette', cursive;
     color: var(--prim);
     opacity: 0.7;
-    left: 50%;
-    transform: translate(-50%,0);
+    text-align: center;
 }
 
 .emprendedores{
@@ -128,6 +126,19 @@ header::before{
 }
 h1{
     transform: translate(0,-2rem);
+    position: relative;
+    z-index: 100;
+}
+h1::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0.5em;
+    background-color: var(--white);
+    bottom: 4.6rem;
+    left: 50%;
+    transform: translate(-50%,0);
+    z-index: 50;
 }
 header input{
     font-size: 2em;
@@ -171,7 +182,7 @@ header input:focus{
     animation-name: focus-input;
     box-shadow: 0 0 0 2px var(--prim);
 }
-header input:focus + .buscar-icon{
+header input:focus + .buscar-button{
     opacity: 0.5;
 }
 @keyframes focus-input{
@@ -191,17 +202,30 @@ header input:focus + .buscar-icon{
     display: flex;
     justify-content: center;
 }
+.buscar-button{
+    position: absolute;
+    right: calc(20%);
+    height: calc(2em + 15px);
+    width: calc(2em + 15px);
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+.buscar-button:hover{
+    opacity: 0.8 !important;
+}
 .buscar-icon{
     position: absolute;
-    right: calc(20% + 8px);
+    padding: 0;
+    outline: 0;
     top: 7px;
     height: 15px;
     width: 15px;
     position: absolute;
     border-radius: 50%;
     border: 4px solid var(--prim);
-    background-color: transparent;
     transition: all 0.3s ease-in-out;
+    pointer-events: none;
 }
 .buscar-icon::after{
     content: "";
@@ -269,10 +293,12 @@ header .dedos{
         bottom: 40px;
         height: 35px;
     }
+    .buscar-button{
+        right: calc(19%);
+    }
     .buscar-icon{
         height: 10px;
         width: 10px;
-        right: calc(19% + 1rem);
         top: 5px;
         border: 4px solid var(--prim);
     }
@@ -295,10 +321,12 @@ header .dedos{
         bottom: 30px;
         height: 30px;
     }
+    .buscar-button{
+        right: calc(18%);
+    }
     .buscar-icon{
         height: 8px;
         width: 8px;
-        right: calc(18% + 1rem);
         top: 6px;
         border: 3px solid var(--prim);
     }
@@ -340,10 +368,12 @@ header .dedos{
         bottom: 25px;
         height: 25px;
     }
+    .buscar-button{
+        right: calc(18%);
+    }
     .buscar-icon{
         height: 8px;
         width: 8px;
-        right: calc(18% + 1rem);
         top: 4px;
         border: 3px solid var(--prim);
     }
