@@ -9,7 +9,6 @@
     z-index: 100;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 16px;
-    scroll-behavior: smooth;
 }
 
 .block{
@@ -25,7 +24,7 @@ body{
     background-size: 100vh 100vh;
 }
 nav{
-    position:fixed;
+    position:absolute;
     width: calc(100% - 30px);
     height: 1.5rem;
     top: 0;
@@ -57,14 +56,6 @@ nav{
     border-radius: 10px;
     opacity: 1;
     transform: scale(1.1);
-}
-.nav-fill{
-    position: sticky;
-    top: 0;
-    width: 100%;
-    height: 3.5rem;
-    background-color: var(--black);
-    z-index: 400;
 }
 
 header{
@@ -140,7 +131,7 @@ h1::after{
     transform: translate(-50%,0);
     z-index: 50;
 }
-header input{
+.input-container .header-input{
     font-size: 2em;
     border-radius: 100px;
     padding: 5px 15px;
@@ -173,16 +164,16 @@ header input{
         transform: rotate(0deg);
     }
 }
-header input::placeholder{
+.input-container .header-input::placeholder{
     color:var(--prim);
     opacity: 0.5;
 }
-header input:focus{
+.input-container .header-input:focus{
     animation: 0.3s ease-in-out;
     animation-name: focus-input;
     box-shadow: 0 0 0 2px var(--prim);
 }
-header input:focus + .buscar-button{
+.input-container .header-input:focus + .buscar-button{
     opacity: 0.5;
 }
 @keyframes focus-input{

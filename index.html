@@ -8,29 +8,37 @@
         <meta name="description" content>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="stylesMain.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Fjalla+One&family=Josefin+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Courgette&family=DM+Mono&family=Fjalla+One&family=Josefin+Sans&display=swap" rel="stylesheet">
         <!-- Icon -->
         <link rel="icon" href="./market.png" type="image/png">
     </head>
     <body>
         <nav>
             <div class="nav-container">
-                <span class="link-container"><a href="#header">Inicio</a></span>
                 <span class="link-container"><a href="index.html">Nosotros</a></span>
                 <span class="link-container"><a href="index.html">Contacto</a></span>
             </div>
         </nav>
         <header id="header" class="block">
             <h1><span class="peque">Argentina</span><span class="emprendedores">EMPRENDEDORES</span></h1>
-            <span class="input-container"><input type="text" placeholder="Quiero encontrar..."><button class="buscar-button"><div class="buscar-icon"></div></button></span>
+            <span class="input-container"><input class="header-input" type="text" placeholder="Quiero encontrar..."><button class="buscar-button"><div class="buscar-icon"></div></button></span>
             <a href="#main"><img src="./market.png" alt="Logo" class="logo img-link"></a>
             <a href="#main"><img class="grow img-link" src="./grow.png" alt=""><img class="flecha img-link" src="./flecha.png" alt=""></a>
         </header>
-        <section class="nav-fill"></section>
         <main class="block" id="main">
-            <h2>Algo</h2>
+            <section class="filter"></section>
+            <section class="emprendimientos">
+                <!-- font-size: 468/cantidad de caracteres -->
+                <div class="emprendimiento" data-color="blue">
+                    <img src="./test.jpg" alt="">
+                    <h2 style="font-size: 22px;">hhhhhhhhhhhhhhhhhhhhh</h2>
+                </div>
+                <div class="emprendimiento" data-color="red"></div>
+                <div class="emprendimiento" data-color="green"></div>
+            </section>
         </main>
         <div class="block"></div>
         <div class="block"></div>
