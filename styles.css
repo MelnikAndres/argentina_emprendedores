@@ -21,18 +21,6 @@ body{
     display: grid;
     background-color: var(--white);
 }
-body::after{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background:radial-gradient(var(--prim) 1px,transparent 8px);
-    background-size: 80px 80px;
-    z-index: 90;
-    opacity: 0.3;
-}
 nav{
     position:absolute;
     width: calc(100% - 30px);
@@ -308,10 +296,6 @@ header .dedos{
         top: 8px;
         height: 13px;
         width: 4px;
-    }
-    body::after{
-        background:radial-gradient(var(--prim) 1px,transparent 4px);
-        background-size: 30px 30px;
     }
 }
 
