@@ -2,7 +2,6 @@
     --prim:#616EEF;
     --sec:#09A8FA;
     --ter:#41C5D3;
-    --con: #D0F1CF;
     --white:#f7f0ff;
     --black:#161835;
     margin: 0;
@@ -14,14 +13,25 @@
 .block{
     position: relative;
     height: 100vh;
+    min-height: 500px;
 }
 
 body{
     position: relative;
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
     background-color: var(--white);
-    background-size: 100vh 100vh;
+}
+body::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background:radial-gradient(var(--prim) 1px,transparent 8px);
+    background-size: 80px 80px;
+    z-index: 90;
+    opacity: 0.3;
 }
 nav{
     position:absolute;
@@ -298,6 +308,10 @@ header .dedos{
         top: 8px;
         height: 13px;
         width: 4px;
+    }
+    body::after{
+        background:radial-gradient(var(--prim) 1px,transparent 4px);
+        background-size: 30px 30px;
     }
 }
 

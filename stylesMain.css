@@ -1,9 +1,12 @@
 *{
-    --blue:rgba(97, 109, 239,0.1);
-    --green:rgba(109, 239,97,0.1);
-    --red:rgba(239, 97, 109,0.1);
-}
+    --blue:rgb(243, 236, 255);
+    --green:rgb(243, 236, 255);
+    --red:rgb(243, 236, 255);
 
+}
+a{
+    text-decoration: none;
+}
 .filter{
     display: flex;
     align-items: center;
@@ -11,12 +14,13 @@
     padding: 5px;
     width: calc(100% - 10px);
     height: 48px;
-    background-color: var(--black);
+    background-color: var(--prim);
+    box-shadow: 0 5px 10px 0 rgba(80,80,80,0.6);
 }
 
 .emprendimientos{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 50px;
     place-items: center;
     padding: 5% 20px;
@@ -24,40 +28,133 @@
     transition: all 0.3s ease-in-out;
 }
 .emprendimiento{
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     place-content: start;
     flex-direction: column;
-    gap: 1rem;
-    height: 400px;
-    width: 280px;
+    height: 412px;
+    width: 312px;
+    padding: 2px;
     background-color: var(--white);
-    border: 10px solid var(--black);
-    outline: 10px solid white;
+    border: 2px solid var(--prim);
     border-radius: 10px;
-    box-shadow: 5px 5px 0px 10px rgba(60, 60, 60, 0.5);
+    box-shadow: 0 0 30px 0 rgba(60, 60, 60, 0.35);
     transition: all 0.3s ease-in-out;
 }
-.emprendimiento img{
-    height: 250px;
+.emprendimiento[data-color="blue"]{
+    --bg: var(--blue);
+}
+.emprendimiento[data-color="red"]{
+    --bg: var(--red);
+}
+.emprendimiento[data-color="green"]{
+    --bg: var(--green);
+}
+.emprendimiento::after{
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    height: 100%;
     width: 100%;
+    border-radius: 10px;
+    z-index: 110;
+}
+.emprendimiento::before{
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    background-color: var(--bg);
+    z-index: 110;
+}
+.emprendimiento *{
+   margin: 0 5px;
+   z-index: 120;
+   font-size: 18px;
+   color: rgb(44, 44, 71);
+}
+.emprendimiento .main-img{
+    display: block;
+    position: relative;
+    height: 250px;
+    width: calc(100% + 8px);
+    transform: translate(-4px,-4px);
+    background-color: var(--white);
+    border-bottom: 2px solid var(--prim);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     object-fit: cover;
+    margin: 0;
+    transition: height 0.3s ease-in-out;
+}
+.emprendimiento .extra{
+    display: none;
+    height: 0;
+    overflow: hidden;
+    animation: 0.8s ease-in-out;
+    animation-name: expand;
+}
+
+@keyframes expand {
+    0%{
+        flex-grow: 0;
+    }
+    100%{
+        flex-grow: 1;
+    }
+}
+
+.emprendimiento .main-img:nth-child(even){
+    border-top: 2px solid var(--prim);
+    border-radius: 0;
+}
+.emprendimiento .title-container{
+    display: grid;
+    grid-template-columns: repeat(1, minmax(100%,200vw));
+    width: calc(100% - 8px);
+    overflow: hidden;
+    margin: 0 4px;
+    margin-top: -2px;
+    margin-bottom: 4px;
 }
 .emprendimiento h2{
-    font-family: 'DM Mono', monospace;
+    text-overflow: ellipsis;
+    width: 200vw;
+    overflow: hidden;
+    font-family: 'Oswald', sans-serif;
+    color: var(--prim);
 }
-.emprendimientos:has(.emprendimiento[data-color="blue"]:hover){
-    background-color: var(--blue);
+.emprendimiento .icon{
+    height: 1em;
+    display: inline;
 }
-.emprendimientos:has(.emprendimiento[data-color="red"]:hover){
-    background-color: var(--red);
+
+.emprendimiento p{
+    text-align: justify;
 }
-.emprendimientos:has(.emprendimiento[data-color="green"]:hover){
-    background-color: var(--green);
+.emprendimientos:has(.emprendimiento:hover){
+    background: rgba(145,145,185,0.15);
 }
+
 .emprendimientos:has(.emprendimiento:hover) .emprendimiento{
     opacity: 0.5;
 }
 .emprendimiento:hover{
     opacity: 1 !important;
+}
+.emprendimiento:hover .main-img{
+    height: 0;
+    border-top: 0 solid var(--prim);
+    border-bottom: 0 solid var(--prim);
+}
+.emprendimiento:hover .extra{
+    display: block;
+    flex-grow: 1;
 }
