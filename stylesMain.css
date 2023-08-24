@@ -92,15 +92,70 @@ a{
     border-top-right-radius: 10px;
     object-fit: cover;
     margin: 0;
-    transition: height 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 .emprendimiento .extra{
     display: none;
     height: 0;
     overflow: hidden;
-    animation: 0.8s ease-in-out;
+    animation: 0.3s ease-in-out;
     animation-name: expand;
+    margin: 0;
+    margin-right: 8px;
 }
+.extra .visitar{
+    color: var(--white);
+    background-color: var(--prim);
+    border: 2px solid var(--prim);
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 50px;
+    text-align: center; 
+    display: block;
+    margin-top: 10px;
+}
+.extra .reportar{
+    box-sizing: border-box;
+    color: var(--prim);
+    border: 2px solid var(--prim);
+    padding: 5px;
+    border-radius: 50px;
+    text-align: center; 
+    display: block;
+    margin-top: 10px;
+    opacity: 0.4;
+    transition: all 0.3s ease-in-out;
+}
+.extra .reportar:hover{
+    opacity: 1;
+    color: var(--white);
+    border: 2px solid rgb(200,80,80);
+    background-color: rgb(200,80,80);
+}
+.extra .reportar:hover::after{
+    content: " !";
+    opacity: 1;
+    color: var(--white);
+    animation: 0.3s ease-in-out;
+    animation-name: appear;
+}
+.extra .reportar:hover::before{
+    content: "¡ ";
+    opacity: 1;
+    color: var(--white);
+    animation: 0.3s ease-in-out;
+    animation-name: appear;
+}
+@keyframes appear {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+    
+}
+
 
 @keyframes expand {
     0%{
@@ -110,14 +165,7 @@ a{
         flex-grow: 1;
     }
 }
-
-.emprendimiento .main-img:nth-child(even){
-    border-top: 2px solid var(--prim);
-    border-radius: 0;
-}
 .emprendimiento .title-container{
-    display: grid;
-    grid-template-columns: repeat(1, minmax(100%,200vw));
     width: calc(100% - 8px);
     overflow: hidden;
     margin: 0 4px;
@@ -151,8 +199,8 @@ a{
 }
 .emprendimiento:hover .main-img{
     height: 0;
-    border-top: 0 solid var(--prim);
     border-bottom: 0 solid var(--prim);
+    opacity: 0;
 }
 .emprendimiento:hover .extra{
     display: block;
